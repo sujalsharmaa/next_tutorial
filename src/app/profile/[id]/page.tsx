@@ -1,4 +1,4 @@
-export function UserProfile({params}:any){
+export default function UserProfile({params}:any){
 
     return (
         <div className="bg-black border-4 border-red-500 flex flex-col items-center justify-center min-h-screen py-2">
