@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import User from '@/models/userModel';
 import bcryptjs from 'bcryptjs';
-import dotenv from "../../.env";
+// import dotenv from "../../.env";
 
 
 

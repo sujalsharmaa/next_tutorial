@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import dotenv from "../../.env";
+// import dotenv from "../../.env";
 
 console.log(process.env.MONGO_URI)
 

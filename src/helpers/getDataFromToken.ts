@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import jwt from "jsonwebtoken"
-import dotenv from "../../.env";
+// import dotenv from "../../.env";
 
 console.log(process.env.TOKEN_SECRET)
 
