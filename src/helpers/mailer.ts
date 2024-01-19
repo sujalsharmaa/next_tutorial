@@ -25,7 +25,7 @@ export async function sendEmail({ email, emailType, userID }: any) {
       host: 'sandbox.smtp.mailtrap.io',
       port: 2525,
       auth: {
-        user: '386343ebec4519',
+        user: process.env.NODEMAILER_USER,
         pass: process.env.NODEMAILER_PASS || '',
       },
     });
