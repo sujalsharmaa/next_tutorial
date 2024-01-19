@@ -46,7 +46,7 @@ export async function sendEmail({ email, emailType, userID }: any) {
     console.log(mailResponse)
     return mailResponse;
 
-  } catch (error) {
+  } catch (error:any) {
     // Handle specific error types
     if (error.name === 'MongoError') {
       console.error('MongoDB error:', error.message);
