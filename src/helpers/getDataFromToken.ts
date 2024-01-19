@@ -1,18 +1,21 @@
-import { NextRequest } from "next/server";
-import jwt from "jsonwebtoken"
-// import dotenv from "../../.env";
+import jwt from 'jsonwebtoken';
+import { NextRequest } from 'next/server';
 
-console.log(process.env.TOKEN_SECRET)
+export async function getDataFromToken(request: NextRequest): Promise<string> {
+  try {
+    const token = await request.cookies.get("token")?.value;
+    console.log(token);
 
-export const getDatafromtoken = async (request:NextRequest)=>{
-    try{
-        const token = await request.cookies.get("token")?.value
-        console.log(token)
-        const decodedToken = jwt.verify(token,process.env.TOKEN_SECRET!);
-        console.log(decodedToken.id)
-        return decodedToken.id;
-    } catch (error:any){
-        throw new Error(error.message);
+    if (!token) {
+      throw new Error('Token not found in cookies');
     }
-}
 
+    const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET!) as { id: string };
+    console.log(decodedToken.id);
+    
+    return decodedToken.id;
+  } catch (error: any) {
+    console.error('Error decoding token:', error.message);
+    throw new Error('Failed to decode token');
+  }
+}
