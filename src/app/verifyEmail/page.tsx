@@ -18,8 +18,7 @@ export default function VerifyEmailPage() {
     } catch (error) {
       setError(true);
       setLoading(false);
-      console.error('Error during email verification:', error.response?.data || error.message);
-    }
+  }
   };
 
   useEffect(() => {
